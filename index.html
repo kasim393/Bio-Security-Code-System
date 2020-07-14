@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BIOCORP-TRMINAL VR-1</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+		 rel="stylesheet">
+	 <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" 
+   		rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap"
+    	rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="styles.css">
+   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+</head>
+<body >
+	<div class="bio-img">
+		<div class="btn-bg">
+			<button class="btn1 btn-all"  onclick="display.value += ' 1'" ></button>
+			<button class="btn2 btn-all"  onclick="display.value += ' 2'" ></button>
+			<button class="btn3 btn-all"  onclick="display.value += ' 3'" ></button>
+			<button class="btn4 btn-all"  onclick="display.value += ' 4'" ></button>
+			<button class="btn5 btn-all"  onclick="display.value += ' 5'" ></button>
+			<button class="btn6 btn-all"  onclick="display.value += ' 6'" ></button>
+			<button class="btn7 btn-all"  onclick="display.value += ' 7'" ></button>
+			<button class="btn8 btn-all"  onclick="display.value += ' 8'" ></button>
+			<button class="btn9 btn-all"  onclick="display.value += ' 9'" ></button>
+			<button class="btn10 btn-all" onclick="display.value  =  ''" ></button>
+			<button class="btn11 btn-all" onclick="display.value += ' 0'" ></button>
+			<button class="btn12 btn-all" onclick="changeImage()"></button>
+		</div>
+
+		<input type="text" id="display" value="" name="answer" class="empt_number" disabled >
+		<img src="assets/cancel_btn.png" class="error_btn" id="picerror" >
+		<img src="assets/success_btn.png" class="success_btn" id="picsuccess">
+		<img  src="assets/timer.png" class="timer-ui" >
+		<div id="text" class="timer-text"> </div>
+		<img  src="assets/lable1.png" class="lable" >
+		<p id="lable1" class="lable-text">1337</p>
+	</div>
+<script>
+        /* Success error image change function*/
+
+        function changeImage() {
+            var display;
+            display = document.getElementById("display").value;
+                
+            if (display != " 1 3 3 7" ) {
+                document.images["picerror"].src = "assets/error.png";//Error
+                document.images["picsuccess"].src = "assets/success_btn.png";
+                document.getElementById("display").value = "  ERROR"
+                
+                
+            } else {
+                document.images["picsuccess"].src = "assets/success.png";//UNlocked
+                document.images["picerror"].src = "assets/cancel_btn.png";
+                document.getElementById("display").value = "  UNLOCKED"
+                 var delay = 2000; // time in milliseconds
+				 $("body").fadeOut(1000,function(){
+			       window.location.href = "about.html"
+			    })	
+            }  
+        }
+        
+
+        	/* Timer function*/
+        	 var timeLeft = 15;
+			    var elem = document.getElementById('text');
+			    var timerId = setInterval(countdown, 1000);
+			    function countdown() {
+			     if (timeLeft == -1) {
+			        clearTimeout(timerId);
+			        document.getElementById("text").innerHTML =  "timeout";
+			       setTimeout(location.reload.bind(location), 2000);
+
+			      } else {
+			        elem.innerHTML = timeLeft;
+			        timeLeft--;
+			      }
+			    }
+
+    </script>
+</body>
+</html>
