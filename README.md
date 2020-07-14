@@ -9,6 +9,12 @@
 (display != " 1 3 3 7" )
 ```
 
+### on Index.html line number 66 to change timer countdown
+
+```
+ var timeLeft = 15;
+```
+
 ## Built With
 
 * **HTML**
